@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Ruvex plugin faol. Agar foydalanuvchi Ruvex Factory ustida ishlamoqchi bo`lsa (yoki shunday desa): 1) ruvex_get_rules ni chaqir, 2) ruvex_my_tasks bilan vazifalarni ko`rsat va foydalanuvchi tanlasin. Foydalanuvchi boshqa ish bilan band bo`lsa - Ruvex haqida jim tur. MUHIM: hech qachon Ruvex REST API (/api/v1/...) ni to`g`ridan-to`g`ri chaqirma - faqat MCP toollar; topshirish faqat /ruvex:done orqali (foydalanuvchi o`zi bosadi).'"
+          }
+        ]
+      }
+    ]
+  }
+}

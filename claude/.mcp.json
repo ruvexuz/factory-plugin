@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "ruvex": {
+      "type": "http",
+      "url": "${RUVEX_MCP_URL:-http://localhost:8080/mcp}",
+      "headers": { "Authorization": "Bearer ${RUVEX_MCP_TOKEN}" }
+    }
+  }
+}
