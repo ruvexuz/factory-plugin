@@ -1,0 +1,6 @@
+{
+  "name": "ruvex",
+  "description": "Ruvex Factory workflow plugin. Lets a PROTOTYPER work on factory tasks from Claude Code: pick tasks, sync prototype files, report progress. MCP tools arrive in a later step - this is the installable skeleton.",
+  "version": "0.0.1",
+  "author": { "name": "Ruvex" }
+}

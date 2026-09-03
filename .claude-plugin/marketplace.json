@@ -1,0 +1,11 @@
+{
+  "name": "ruvex",
+  "owner": { "name": "Ruvex" },
+  "plugins": [
+    {
+      "name": "ruvex",
+      "source": "./claude",
+      "description": "Ruvex Factory workflow plugin: work on prototyping tasks from Claude Code via MCP"
+    }
+  ]
+}
