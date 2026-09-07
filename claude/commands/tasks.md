@@ -1,10 +1,12 @@
 ---
-description: Show my Ruvex Factory tasks and start working on one
+description: Show my Ruvex Factory tasks and let me pick one manually
 ---
 
 You are working with Ruvex Factory via the `ruvex` MCP server.
 
-1. Call `ruvex_get_rules` first if you haven't in this session.
-2. Call `ruvex_my_tasks` and present the tasks to the user (in-progress first).
-3. Ask which task to work on. Then call `ruvex_task_context` for it and follow the rules
-   (path check, set state to in-progress when starting, sync after changes).
+1. Call `ruvex_get_rules` FIRST. On an authentication error: tell the user to
+   authenticate (`/mcp` -> ruvex -> authenticate) and STOP.
+2. Call `ruvex_my_tasks`, show the list, and let the USER choose (unlike /ruvex:start,
+   which auto-picks the first one).
+3. After the pick: `ruvex_task_context` + the FOLDER DISCIPLINE from the rules, then the
+   role workflow.
