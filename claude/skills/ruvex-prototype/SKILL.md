@@ -9,8 +9,8 @@ description: Use when the user wants to work on a Ruvex Factory task - building 
 - ALWAYS call `ruvex_get_rules` FIRST and follow the returned canonical rules - they may
   be newer than this skill.
 - NEVER call the Ruvex REST API (any http URL with /api/v1/...) directly - not with curl,
-  not with fetch, not through any tool. You only use the `ruvex` MCP tools. The submission
-  step is human-only via the /ruvex:done command.
+  not with fetch, not through any tool. You only use the `ruvex` MCP tools. Submission is
+  human-only: /ruvex:done just opens the web page (via `ruvex_done_link`), the user submits there.
 - The USER picks the task; you never pick silently.
 
 ## Flow
@@ -22,5 +22,6 @@ description: Use when the user wants to work on a Ruvex Factory task - building 
 4. Build static prototype files under prototype/v<N>/ locally; after every meaningful
    change push them with `ruvex_sync_files` and give the user the preview URL.
 5. `ruvex_working` at the start of each working turn (work-time tracking).
-6. When done: `ruvex_set_task_state` to "Bajarildi", then tell the user to review the
-   preview and submit with `/ruvex:done`.
+6. When done: `ruvex_set_task_state` to "Bajarildi", then run /ruvex:done flow:
+   `ruvex_done_link` -> open the returned URL in the browser -> the USER reviews and
+   submits in the web UI.
