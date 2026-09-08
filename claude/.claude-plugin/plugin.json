@@ -1,6 +1,6 @@
 {
   "name": "ruvex",
   "description": "Ruvex Factory workflow plugin: PROTOTYPER works on factory tasks from Claude Code via MCP. AI builds and syncs prototypes; the human submits with /ruvex:done.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": { "name": "Ruvex" }
 }
