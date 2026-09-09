@@ -15,7 +15,5 @@ The user wants to commit the current code state. Follow this EXACT order:
      staged - .gitignore must cover them.
    - `git add` + `git commit` with a short imperative message, then `git push origin v<N>`.
 4. Report the result per repo (branch, commit summary).
-5. FALLBACK: if git access fails (auth error on push), use `ruvex_sync_code` with the
-   COMPLETE manifest - the server commits+pushes to v<N> for you.
 
 main changes ONLY via pull requests opened from the web UI and merged by a human.
