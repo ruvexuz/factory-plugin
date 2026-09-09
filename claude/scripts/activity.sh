@@ -17,6 +17,7 @@ jget() { # $1=kalit - oddiy string qiymat (escaped belgilar bilan); BSD/GNU sed 
 
 SID=$(jget session_id | head -c 64)
 TOOL=$(jget tool_name | head -c 64)
+CWD=$(jget cwd | head -c 300)
 
 DETAIL=""
 case "$1" in
@@ -35,9 +36,10 @@ esac
 # JSON uchun xavfsizlash: \ va " belgilari, control charlar
 DETAIL=$(printf '%s' "$DETAIL" | tr -d '\000-\037' | sed 's/\\/\\\\/g; s/"/\\"/g' | head -c 450)
 SID=$(printf '%s' "$SID" | tr -cd 'a-zA-Z0-9_-')
+CWD=$(printf '%s' "$CWD" | tr -d '\000-\037' | sed 's/\\/\\\\/g; s/"/\\"/g')
 TOOL=$(printf '%s' "$TOOL" | tr -d '\000-\037' | sed 's/\\/\\\\/g; s/"/\\"/g')
 
-BODY="{\"event\":\"$1\",\"session_id\":\"$SID\",\"tool_name\":\"$TOOL\",\"detail\":\"$DETAIL\"}"
+BODY="{\"event\":\"$1\",\"session_id\":\"$SID\",\"tool_name\":\"$TOOL\",\"detail\":\"$DETAIL\",\"cwd\":\"$CWD\"}"
 case "$1" in
   stop|session_end)
     # SINXRON: oxirgi tool POSTlaridan KEYIN yetishi kafolatlanadi (poyga oldini oladi)
