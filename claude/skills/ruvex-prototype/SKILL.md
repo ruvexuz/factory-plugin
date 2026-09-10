@@ -23,10 +23,18 @@ description: Use when the user wants to work on a Ruvex Factory task - building 
 2. `ruvex_task_context` -> read the spec (accepted proposals), version, preview URL,
    bound local path. If CWD differs from the bound path, suggest switching (or bind the
    current one with `ruvex_set_project_path` if the user agrees).
-3. `ruvex_set_task_state` to "Jarayonda" when you actually start.
-4. Build static prototype files under prototype/v<N>/ locally; after every meaningful
+3. ATTACHMENTS. The spec may contain tags like `[[fayl:12 spec.pdf]]` and task_context lists them
+   under ATTACHMENTS. For every file you need: call `ruvex_get_file(file_id)` - it returns a
+   one-time 5-minute `url`, the expected `sha256` and a `save_to` path. Then run:
+   `mkdir -p .ruvex/attachments && curl -fsSL -o "<save_to>" "<url>" && echo "<sha256>  <save_to>" | shasum -a 256 -c -`
+   Never paste file bytes into the conversation. If curl fails or the checksum does not match,
+   delete the file and call ruvex_get_file again (a fresh link); after two failures tell the user.
+   Make sure `.ruvex/` is in `.gitignore`. Read pdf/txt/md/csv/images directly; docx/xlsx/pptx
+   cannot be read yet - ask the user for the essentials.
+4. `ruvex_set_task_state` to "Jarayonda" when you actually start.
+5. Build static prototype files under prototype/v<N>/ locally; after every meaningful
    change push them with `ruvex_sync_files` and give the user the preview URL.
-5. `ruvex_working` at the start of each working turn (work-time tracking).
-6. When done: `ruvex_set_task_state` to "Bajarildi", then run /ruvex:done flow:
+6. `ruvex_working` at the start of each working turn (work-time tracking).
+7. When done: `ruvex_set_task_state` to "Bajarildi", then run /ruvex:done flow:
    `ruvex_done_link` -> open the returned URL in the browser -> the USER reviews and
    submits in the web UI.

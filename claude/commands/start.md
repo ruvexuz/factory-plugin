@@ -19,4 +19,6 @@ The user starts Ruvex Factory work. Follow this EXACT order:
    BOUND LOCAL PATH with CWD; ask the user the exact questions from the rules; use
    `ruvex_pull_files` to restore into a new empty folder when the old one is gone;
    bind with `ruvex_set_project_path`). If the user declines the folder - STOP.
+   If the context lists ATTACHMENTS, fetch each one now with ruvex_get_file + curl + sha256
+   check (see the skill) before planning.
 4. Only after the folder is confirmed: proceed with the role workflow from the rules.
