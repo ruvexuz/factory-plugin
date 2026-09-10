@@ -2,7 +2,7 @@
   "mcpServers": {
     "ruvex": {
       "type": "http",
-      "url": "${RUVEX_MCP_URL:-http://localhost:8080/mcp}"
+      "url": "${RUVEX_MCP_URL:-https://api.ruvx.uz/mcp}"
     }
   }
 }

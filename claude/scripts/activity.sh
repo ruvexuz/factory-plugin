@@ -8,7 +8,7 @@ KEY_FILE="$HOME/.ruvex/activity_key"
 [ -f "$KEY_FILE" ] || exit 0
 KEY=$(head -1 "$KEY_FILE" | tr -d ' \r\n')
 [ -n "$KEY" ] || exit 0
-API="${RUVEX_API_URL:-http://localhost:8080}"
+API="${RUVEX_API_URL:-https://api.ruvx.uz}"
 IN=$(cat 2>/dev/null | head -c 20000)
 
 jget() { # $1=kalit - oddiy string qiymat (escaped belgilar bilan); BSD/GNU sed -E
