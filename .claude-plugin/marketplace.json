@@ -8,7 +8,7 @@
       "name": "ruvex",
       "source": "./claude",
       "description": "Ruvex Factory workflow plugin: work on prototyping tasks from Claude Code via MCP",
-      "version": "1.4.0"
+      "version": "1.4.1"
     }
   ]
 }
