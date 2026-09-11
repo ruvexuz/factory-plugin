@@ -35,6 +35,8 @@ description: Use when the user wants to work on a Ruvex Factory task - building 
 5. Build static prototype files under prototype/v<N>/ locally; after every meaningful
    change push them with `ruvex_sync_files` and give the user the preview URL.
 6. `ruvex_working` at the start of each working turn (work-time tracking).
-7. When done: `ruvex_set_task_state` to "Bajarildi", then run /ruvex:done flow:
+7. Before signalling done: update `docs/memory.md` (see PROJECT MEMORY rule in
+   `ruvex_get_rules` - `data/<name>/docs/memory.md` for a prototype).
+8. When done: `ruvex_set_task_state` to "Bajarildi", then run /ruvex:done flow:
    `ruvex_done_link` -> open the returned URL in the browser -> the USER reviews and
    submits in the web UI.
