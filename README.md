@@ -46,6 +46,17 @@ Plugin fayllarini o'zgartirgandan keyin: `claude plugin marketplace update ruvex
 Til qoidasi: AI o'qiydigan kontent (commands, skills, rules, tool descriptions) - ENGLISH;
 kod izohlari va README - uz.
 
+## MANAGER oqimi (tadqiqot)
+
+MANAGER `/ruvex:start` orqali RESEARCH vazifani oladi (bir vaqtda bitta faol - qolgani
+navbatda). CC `ruvex-research` skill bo'yicha ishlaydi: `ruvex_research_context` bilan
+checklist va takliflarni oladi, `research/` papkada intervyu topilmalarini tartiblaydi
+(`research/manba/` - user fayllari, `research/TADQIQOT.md` - yig'ma hujjat), so'ng
+`ruvex_research_sync` + `ruvex_research_check` bilan serverga tekshirtiradi (kamchilik
+bo'lsa savol takrorlaydi), oxirida AI takliflar bo'yicha bergan qarorlarni userga
+ko'rsatib tasdiqlatadi va `ruvex_research_confirm` chaqiradi. Keyingi qadam - BIZNES
+tasdig'i (webda, plugin tegmaydi).
+
 ## Qoida: versiya
 
 Plugin tarkibi HAR o'zgarganda versiya IKKI joyda oshiriladi (bir xil qiymat, kamida patch):

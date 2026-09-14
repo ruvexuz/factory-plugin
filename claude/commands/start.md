@@ -21,4 +21,6 @@ The user starts Ruvex Factory work. Follow this EXACT order:
    bind with `ruvex_set_project_path`). If the user declines the folder - STOP.
    If the context lists ATTACHMENTS, fetch each one now with ruvex_get_file + curl + sha256
    check (see the skill) before planning.
-4. Only after the folder is confirmed: proceed with the role workflow from the rules.
+4. Only after the folder is confirmed: if the picked task is a RESEARCH task (task_context
+   says so): call `ruvex_research_context` and follow the RESEARCHER rules / `ruvex-research`
+   skill; otherwise the builder/verifier workflow from the rules.
