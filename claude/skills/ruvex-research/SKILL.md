@@ -71,8 +71,11 @@ description: Use when the user is a Ruvex MANAGER working on a research task - i
    - `ok=true`: you get an `UPLOAD_TOKEN`, an AI summary, and a per-proposal line
      (`#id coverage decision reason summary`). Show this list to the user and get their
      explicit confirmation or changes before moving on.
-7. `ruvex_research_confirm(task_id, upload_token, summary, decisions[{id, decision}])`
-   with the user-approved decisions. Report the result to the user verbatim (submission
+7. `ruvex_research_confirm(task_id, upload_token, summary, decisions[{id, decision}], mode?)`
+   with the user-approved decisions. If the reply says `merge_mode_required` (the project has an
+   open prototype version vN, possibly SENT to review), ask the user with AskUserQuestion:
+   "add the accepted proposals to vN (mode=merge; a SENT version is retracted from review and the
+   PROTOTYPER continues)" or "new version vN+1 (mode=new)" - then call again with `mode`. Report the result to the user verbatim (submission
    confirmation, accepted/archived/returned-to-idea counts, "BIZNES tasdig'i kutiladi",
    and the `/projects/<id>` link).
 8. Call `ruvex_next_task` again - if another research task activated for this MANAGER,
