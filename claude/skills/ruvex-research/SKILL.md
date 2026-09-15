@@ -39,6 +39,11 @@ description: Use when the user is a Ruvex MANAGER working on a research task - i
      ledger ("3/7 savol, 2/5 taklif") and steer every question at the empty part.
    - Open by explaining the project (title, description, proposals) and the GOAL in a few
      lines, so the MANAGER understands what the project is about along the way.
+   - Question FORMAT: if the answer is a choice from a known set (customer type, channel,
+     payment model, yes/no/not sure...) ask with the AskUserQuestion tool - 2-4 options,
+     `multiSelect` when several apply, help in the option descriptions ("Other" stays for
+     free text). If the answer is free text (number, name, price, description) ask in
+     chat. Never make the user type what could be a click; one call = one question.
    - Ask ONE concrete question, attach the help needed to answer it (why it matters, what
      to look at, where to find it: "shularni o'rgan...", "bunday ishlaydi...", "buni nima
      qilamiz?"). If the user does not know - split the question, suggest where to look, or
