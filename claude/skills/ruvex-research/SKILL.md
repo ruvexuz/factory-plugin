@@ -34,12 +34,23 @@ description: Use when the user is a Ruvex MANAGER working on a research task - i
    `03-auditoriya.md`, `04-monetizatsiya.md`, `05-oqimlar.md`, `06-funksiyalar.md`,
    `07-xavflar.md` - if a checklist question was added on the server, use `NN-<slug>.md`).
    Any file the user hands you goes into `research/manba/`, unmodified.
-3. Interview the user, one checklist question at a time. Ask concrete questions, write
-   down the user's answers into the matching section file (never invent facts - see Hard
-   rules). For every proposal (`#id`) note in the relevant section where/how it is
-   covered by the research. If the user gives you a file, copy it into `research/manba/`
-   and summarize the relevant parts into the matching section, citing the source file.
-4. When the user says the research is done ("bo'ldi"/"tayyor"): assemble
+3. Interview the user - GUIDED, ONE QUESTION PER TURN (details in the MANAGER rules):
+   - GOAL = every checklist question answered + every proposal (`#id`) covered; keep a
+     ledger ("3/7 savol, 2/5 taklif") and steer every question at the empty part.
+   - Open by explaining the project (title, description, proposals) and the GOAL in a few
+     lines, so the MANAGER understands what the project is about along the way.
+   - Ask ONE concrete question, attach the help needed to answer it (why it matters, what
+     to look at, where to find it: "shularni o'rgan...", "bunday ishlaydi...", "buni nima
+     qilamiz?"). If the user does not know - split the question, suggest where to look, or
+     record an explicit `taxmin`. Never leave the user without a next step.
+   - After each answer: write it into the matching section file at once (never invent
+     facts - see Hard rules), acknowledge in one line, update the ledger, next question.
+   - Files the user gives you go into `research/manba/`; summarize into the section with
+     the source cited.
+   - When the ledger is complete, announce it: summary per question/proposal +
+     "Tadqiqot yakunlandi - jo'natishga tayyormiz. Tekshiruvga yuboraymi?" and wait for
+     the user's yes.
+4. When the GOAL is collected and the user agreed (or says "bo'ldi"/"tayyor" earlier): assemble
    `research/TADQIQOT.md` (sections = checklist order). If `pandoc` is available, also
    produce `research/TADQIQOT.pdf`; otherwise send the markdown as-is.
 5. `ruvex_research_sync(task_id, files[{path, content}], manifest[])` with the `research/**`
