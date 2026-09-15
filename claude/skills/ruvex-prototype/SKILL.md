@@ -34,6 +34,14 @@ description: Use when the user wants to work on a Ruvex Factory task - building 
 4. `ruvex_set_task_state` to "Jarayonda" when you actually start.
 5. Build static prototype files under prototype/v<N>/ locally; after every meaningful
    change push them with `ruvex_sync_files` and give the user the preview URL.
+   PROTOTYPE CONTRACT (rules #109-#112, release 2026-09-15):
+   - start `/ruvex:preview` (live reload) and keep it running;
+   - v2+: write `prototype/v<N>/docs/versions/v<N>-diff.md` FIRST, confirm it with the user,
+     then code; with CODE REPOS clone them into `code/<name>/` (branch v<N>) and fill the
+     Impact report from real code;
+   - every interactive element gets `data-action="verb-object"` and a row in
+     `prototype/v<N>/docs/functions.md` - an undocumented element is an error gate;
+   - unclear business logic -> `ruvex_issue_create` (task locks 🔒) -> `ruvex_next_task`.
 6. `ruvex_working` at the start of each working turn (work-time tracking).
 7. Before signalling done: update `docs/memory.md` (see PROJECT MEMORY rule in
    `ruvex_get_rules` - `data/<name>/docs/memory.md` for a prototype).
