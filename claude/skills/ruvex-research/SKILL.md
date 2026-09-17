@@ -24,7 +24,7 @@ description: Use when the user is a Ruvex MANAGER working on a research task - i
 1. `ruvex_next_task(cwd)` -> `ruvex_task_context`. If it reports a RESEARCH task
    (origin=RESEARCH), call `ruvex_research_context(task_id)` to get the project info,
    BOUND LOCAL PATH, deadline + lateness, the active checklist (numbered questions), the
-   list of proposals sent "O'rganishga" (`#id` + full text + author + date), any BUSINESS
+   list of proposals sent "O'rganishga" (ref `P/N`, e.g. `3/11` + full text + author + date), any BUSINESS
    return comments, the last check report (if any), the presentation status and the
    document version (v1/v2). If the reply says the task is
    queued (Navbatda), tell the user which research is active first and STOP - do not
@@ -35,7 +35,7 @@ description: Use when the user is a Ruvex MANAGER working on a research task - i
    `07-xavflar.md` - if a checklist question was added on the server, use `NN-<slug>.md`).
    Any file the user hands you goes into `research/manba/`, unmodified.
 3. Interview the user - GUIDED, ONE QUESTION PER TURN (details in the MANAGER rules):
-   - GOAL = every checklist question answered + every proposal (`#id`) covered; keep a
+   - GOAL = every checklist question answered + every proposal (ref `P/N`) covered; keep a
      ledger ("3/7 savol, 2/5 taklif") and steer every question at the empty part.
    - Open by explaining the project (title, description, proposals) and the GOAL in a few
      lines, so the MANAGER understands what the project is about along the way.
@@ -69,7 +69,7 @@ description: Use when the user is a Ruvex MANAGER working on a research task - i
      ataylab bo'sh qoldiramizmi?" - but do not offer to submit as-is either way; the
      server rejects incomplete research regardless.
    - `ok=true`: you get an `UPLOAD_TOKEN`, an AI summary, and a per-proposal line
-     (`#id coverage decision reason summary`). Show this list to the user and get their
+     (`P/N coverage decision reason summary`). Show this list to the user and get their
      explicit confirmation or changes before moving on.
 7. `ruvex_research_confirm(task_id, upload_token, summary, decisions[{id, decision}], mode?)`
    with the user-approved decisions. If the reply says `merge_mode_required` (the project has an
